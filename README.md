@@ -4,7 +4,7 @@
 
 ## Usage:
 
-#### Merging the suite with an existing repository
+#### Merging the suite with an existing repository:
 
 ```bash
 git remote add r2d2-ci-suite git@github.com:JulianvDoorn/r2d2-continuous-integration-template.git
