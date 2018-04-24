@@ -1,5 +1,4 @@
 include (CTest)
-include (TestConfig.cmake)
 
 set (BUILD_TEST build_test)
 set (UNIT_TEST ${UNIT_TEST_FILE})
