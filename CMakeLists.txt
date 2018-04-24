@@ -4,7 +4,7 @@ project (HELLO)
 set(UNIT_TEST unit_test)
 
 add_executable (hello main.cpp)
-add_executable (${UNIT_TEST} ${UNIT_TEST}.cpp)
+add_executable (${UNIT_TEST} EXCLUDE_FROM_ALL ${UNIT_TEST}.cpp)
 
 add_test (
 	NAME ${UNIT_TEST}
