@@ -15,5 +15,6 @@ addons:
     packages:
       - cmake-data
       - cmake
+      - valgrind
 
 script: ./configure.sh && cd build/ && ctest -V
