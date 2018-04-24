@@ -13,7 +13,8 @@ add_test (
 
 add_custom_command(
      TARGET ${UNIT_TEST}
-     COMMENT "Running ${UNIT_TEST}"
+     COMMENT "Run tests"
      POST_BUILD 
-     COMMAND ${UNIT_TEST}
+     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+     COMMAND ${CMAKE_CTEST_COMMAND} -C $<CONFIGURATION> -R "^${UNIT_TEST}$" --output-on-failures
 )
