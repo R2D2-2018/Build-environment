@@ -16,4 +16,4 @@ addons:
       - cmake-data
       - cmake
 
-script: ./configure.sh && make -C build/ && make -C build/ unit_test --no-print-directory
+script: ./configure.sh && cd build/ && ctest -V
