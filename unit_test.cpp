@@ -2,5 +2,6 @@
 
 int main() {
 	std::cout << "Test successful!" << std::endl;
-	return 1;
+	std::cout << "Second line!" << std::endl;
+	return 0;
 }
