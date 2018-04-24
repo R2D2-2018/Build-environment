@@ -1,0 +1,19 @@
+language: c++
+sudo: required
+
+compiler:
+  - gcc
+  
+python:
+  - "2.7"
+
+install:
+  - sudo pip install lizard -q # Cyclomatic Complexity Check Tool
+
+addons:
+  apt:
+    packages:
+      - cmake-data
+      - cmake
+
+script: ./configure.sh && make -C build/ && make -C build/ unit_test
