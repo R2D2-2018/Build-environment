@@ -26,14 +26,14 @@ chmod +x configure.sh
 #### Fresh setup:
 Windows:
 ```batch
-git clone https://travis-ci.org/JulianvDoorn/r2d2-continuous-integration-template
+git clone git@github.com:JulianvDoorn/r2d2-continuous-integration-template.git
 cd r2d2-continuous-integration-template
 configure.bat
 ```
 
 Linux:
 ```bash
-git clone https://travis-ci.org/JulianvDoorn/r2d2-continuous-integration-template
+git clone git@github.com:JulianvDoorn/r2d2-continuous-integration-template.git
 cd r2d2-continuous-integration-template
 chmod +x configure.sh
 ./configure.sh
