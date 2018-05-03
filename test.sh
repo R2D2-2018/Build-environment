@@ -1,8 +1,8 @@
 #!/bin/bash
 
 for d in modules/*/ ; do
-	cd "mkdir ${d}build";
+	cd mkdir ${d}build;
 	cd ${d}build;
-	cmake .;
+	cmake ..;
 	ctest -V;
 done
