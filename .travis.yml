@@ -13,6 +13,7 @@ install:
 addons:
   apt:
     packages:
+      - gcc-arm-none-eabi
       - cmake
       - valgrind
 
