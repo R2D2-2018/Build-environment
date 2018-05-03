@@ -21,4 +21,4 @@ before_script:
   - arm-none-eabi-gcc --version
   - gcc --version
 
-script: ./configure.sh && ./test.sh
+script: ./test.sh
