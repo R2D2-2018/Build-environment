@@ -16,4 +16,4 @@ addons:
       - cmake
       - valgrind
 
-script: ./configure.sh && cd build/ && ctest -V
+script: ./configure.sh && ./test.sh
