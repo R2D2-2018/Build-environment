@@ -13,8 +13,12 @@ install:
 addons:
   apt:
     packages:
-      - gcc-arm-none-eabi
+      - arm-none-eabi
       - cmake
       - valgrind
+
+before_script:
+  - arm-none-eabi-arm --version
+  - gcc --version
 
 script: ./configure.sh && ./test.sh
