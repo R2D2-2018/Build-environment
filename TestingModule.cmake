@@ -1,7 +1,7 @@
 include (CTest)
 
 set (BUILD_TEST build_test)
-set (UNIT_TEST ${UNIT_TEST_FILE})
+set (UNIT_TEST unit_test)
 set (MEMCHECK memcheck)
 set (COMPLEXITY_TEST complexity_test)
 
@@ -16,7 +16,7 @@ add_test (
 endif (BUILD_TEST_ENABLED)
 
 if (UNIT_TEST_ENABLED)
-add_executable (${UNIT_TEST} ${UNIT_TEST_FILE})
+add_executable (${UNIT_TEST} ${UNIT_TEST_MAIN})
 
 add_test (
 	NAME ${UNIT_TEST}
