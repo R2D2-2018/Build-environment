@@ -15,14 +15,12 @@
 // this file contains Doxygen lines
 /// @file
 
-#define HWLIB_STRING_H
-
 #ifndef HWLIB_STRING_H
 #define HWLIB_STRING_H
 
 #include <stddef.h>
 #include <type_traits>
-//#include <iostream>
+#include <iostream>
 
 namespace hwlib {
 
@@ -608,15 +606,6 @@ public:
 
 };
 
-//============================================================================
-//
-// static dummy
-//  
-//============================================================================
-
-#ifdef HWLIB_ONCE 
-char string<0>::dummy; 
-#endif
 
 //============================================================================
 //

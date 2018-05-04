@@ -18,9 +18,9 @@
 
 #include <stdint.h>
 
-#include "io.h"
+#include "avr/io.h"
 
-#include "hwlib-all.hpp"
+#include HWLIB_INCLUDE( hwlib-all.hpp )
 
 /// \brief
 /// hwlib implementation for the Arduino Uno
@@ -178,7 +178,7 @@ void HWLIB_WEAK configure_as_gpio( uint_fast8_t port, uint_fast8_t pin ){
 
 /// \endcond
    
-/// pin_in implementation for a ATMega328P
+/// pin_in implementation for an ATMega328P
 class pin_in : public hwlib::pin_in {
 private:
    volatile uint8_t & port;
@@ -434,31 +434,42 @@ namespace hwlib {
 
 namespace target = ::uno;
    
+#ifdef HWLIB_ONCE
+   
 void HWLIB_WEAK wait_ns( int_fast32_t n ){
    wait_us( n / 1000 );
 }
 
-void HWLIB_WEAK wait_16_us( int_fast16_t n ){ 
-    // first integer parameter is passd in r24/r25
+void HWLIB_WEAK wait_us_asm( int n ){ 
+    // first int parameter is passd in r24/r25
     __asm volatile(                  // clocks
        "1:  cp    r1, r24     \t\n"   // 1
        "    cpc   r1, r25     \t\n"   // 1
        "    brge  3f          \t\n"   // 1
        "    rcall 3f          \t\n"   // 7
-       "    rjmp  2f          \t\n"  // 2
+       "    rjmp  2f          \t\n"   // 2
        "2:  sbiw  r24, 0x01   \t\n"   // 2
        "    rjmp  1b          \t\n"   // 2
        "3:                    \t\n"   // 16 total
-   );     
+       : : "r" ( n )                  // uses (reads) n
+   ); 
+    
 }
 
 void HWLIB_WEAK wait_us( int_fast32_t n ){ 
-    wait_16_us( n );     
+   while( n > 0 ){
+      if( n < 10'000 ){
+          wait_us_asm( n );
+          return;
+      }
+      wait_us_asm( 1'000 );
+      n -= 1'000;
+   }
 }
 
 void HWLIB_WEAK wait_ms( int_fast32_t n ){
    while( n > 0 ){
-      wait_us( 1000 );
+      wait_us( 1'000 );
       --n;
    }   
 }   
@@ -467,6 +478,8 @@ void HWLIB_WEAK uart_putc( char c ){
    static target::pin_out pin( 3, 1 );
    uart_putc_bit_banged_pin( c, pin );
 }
+
+#endif
 
 }; //namespace hwlib   
 

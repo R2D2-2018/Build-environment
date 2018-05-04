@@ -17,32 +17,33 @@
 #ifndef HWLIB_ALL_H
 #define HWLIB_ALL_H
 
-#include "hwlib-defines.hpp"
-#include "hwlib-common.hpp"
-#include "hwlib-pin.hpp"
-#include "hwlib-pin-dummies.hpp"
-#include "hwlib-pin-decorators.hpp"
-#include "hwlib-port.hpp"
-#include "hwlib-port-from-pins.hpp"
-#include "hwlib-port-decorators.hpp"
-#include "hwlib-adc.hpp"
-#include "hwlib-dac.hpp"
-#include "hwlib-console.hpp"
-#include "hwlib-graphics.hpp"
-#include "hwlib-font-default-8x8.hpp"
-#include "hwlib-font-default-16x16.hpp"
-#include "hwlib-wait.hpp"
-#include "hwlib-ostream.hpp"
-#include "hwlib-panic.hpp"
-#include "hwlib-i2c.hpp"
-#include "hwlib-pcf8574a.hpp"
-#include "hwlib-pcf8591.hpp"
-#include "hwlib-spi.hpp"
-#include "hwlib-hc595.hpp"
-#include "hwlib-hd44780.hpp"
-#include "hwlib-glcd-5510.hpp"
-#include "hwlib-glcd-oled.hpp"
-#include "hwlib-string.hpp"
-#include "hwlib-demo.hpp"
+#include HWLIB_INCLUDE( hwlib-defines.hpp )
+#include HWLIB_INCLUDE( hwlib-panic.hpp )
+#include HWLIB_INCLUDE( hwlib-common.hpp )
+#include HWLIB_INCLUDE( hwlib-pin.hpp )
+#include HWLIB_INCLUDE( hwlib-pin-dummies.hpp )
+#include HWLIB_INCLUDE( hwlib-pin-decorators.hpp )
+#include HWLIB_INCLUDE( hwlib-port.hpp )
+#include HWLIB_INCLUDE( hwlib-port-from-pins.hpp )
+#include HWLIB_INCLUDE( hwlib-port-decorators.hpp )
+#include HWLIB_INCLUDE( hwlib-adc.hpp )
+#include HWLIB_INCLUDE( hwlib-dac.hpp )
+#include HWLIB_INCLUDE( hwlib-console.hpp )
+#include HWLIB_INCLUDE( hwlib-graphics.hpp )
+#include HWLIB_INCLUDE( hwlib-font-default-8x8.hpp )
+#include HWLIB_INCLUDE( hwlib-font-default-16x16.hpp )
+#include HWLIB_INCLUDE( hwlib-wait.hpp )
+#include HWLIB_INCLUDE( hwlib-ostream.hpp )
+#include HWLIB_INCLUDE( hwlib-i2c.hpp )
+#include HWLIB_INCLUDE( hwlib-pcf8574a.hpp )
+#include HWLIB_INCLUDE( hwlib-pcf8591.hpp )
+#include HWLIB_INCLUDE( hwlib-spi.hpp )
+#include HWLIB_INCLUDE( hwlib-hc595.hpp )
+#include HWLIB_INCLUDE( hwlib-hd44780.hpp )
+#include HWLIB_INCLUDE( hwlib-glcd-5510.hpp )
+#include HWLIB_INCLUDE( hwlib-glcd-oled.hpp )
+#include HWLIB_INCLUDE( hwlib-matrix-keypad.hpp )
+#include HWLIB_INCLUDE( hwlib-string.hpp )
+#include HWLIB_INCLUDE( hwlib-demo.hpp )
 
 #endif // HWLIB_ALL_H

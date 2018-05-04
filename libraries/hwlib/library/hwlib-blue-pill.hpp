@@ -1,6 +1,6 @@
 // ==========================================================================
 //
-// File      : hwlib.cpp
+// File      : hwlib-blue-pill.hpp
 // Part of   : C++ hwlib library for close-to-the-hardware OO programming
 // Copyright : wouter@voti.nl 2017
 //
@@ -10,8 +10,12 @@
 //
 // ==========================================================================
 
-// The (very few) code parts that must be compiled (instead of included)
-// are in the header files, enabled only when #HWLIB_ONCE is defined.
+// this file contains Doxygen lines
+/// @file
 
-#define HWLIB_ONCE
-#include "hwlib.hpp"
+#ifndef HWLIB_BLUE_PILL_H
+#define HWLIB_BLUE_PILL_H
+
+HWCPP_INCLUDE( hwlib-stm32f103c8.hpp )
+
+#endif // #ifdef HWLIB_BLUE_PILL_H

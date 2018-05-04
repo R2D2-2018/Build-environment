@@ -91,7 +91,7 @@ class glcd_oled_spi : public window {
         ACTIVATE_SCROLL                      = 0x2F,
         DEACTIVATE_SCROLL                    = 0x2E,
         SET_VERTICAL_SCROLL_AREA             = 0xA3,
-        RIGHT_HORIZONTAL_SCROLL              ++= 0x26,
+        RIGHT_HORIZONTAL_SCROLL              = 0x26,
         LEFT_HORIZONTAL_SCROLL               = 0x27,
         VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL = 0x29,
         VERTICAL_AND_LEFT_HORIZONTAL_SCROLL  = 0x2A,   
