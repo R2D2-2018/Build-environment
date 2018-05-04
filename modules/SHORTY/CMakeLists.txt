@@ -1,53 +1,25 @@
 cmake_minimum_required (VERSION 2.8.11)
+
+set (test_build TRUE)
+
 set(toolchain ../../toolchain) # Your path to kvasir_toolchain
+
+if (NOT ${test_build})
 set(CMAKE_TOOLCHAIN_FILE ${toolchain}/compilers/arm-none-eabi.cmake)
+else (NOT ${test_build})
+set(CMAKE_TOOLCHAIN_FILE ${toolchain}/compilers/host-gcc.cmake)
+endif (NOT ${test_build})
+
 project(shorty CXX)
 
-include(../../flags.cmake)
+set (build_test_enabled TRUE)
+set (unit_test_enabled TRUE)
+set (complexity_test_enabled TRUE)
+set (memcheck_enabled TRUE)
+set (unit_test_main test/test_main.cpp)
 
-# Main file for the unit tests binary
-set (UNIT_TEST_MAIN test/test_main.cpp)
-
-# Highest cyclomatic complexity to allow without warning
-set (DANGEROUS_CYCLOMATIC_COMPLEXITY 10)
-
-set (TESTING_ENABLED true)
-set (BUILD_TEST_ENABLED true)
-set (UNIT_TEST_ENABLED false)
-set (MEMCHECK_ENABLED false) # Linux only
-set (COMPLEXITY_TEST_ENABLED true)
-
-## Includes the R2D2 Testing Suite
-include (TestingModule.cmake)
-
-set(cxxflags
-    "-Os"
-    "-ffunction-sections"
-    "-fdata-sections"
-    "-fno-exceptions"
-    "-fno-rtti"
-    "-fno-threadsafe-statics")
-
-string(REGEX REPLACE ";" " " cxxflags "${cxxflags}")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${cxxflags}")
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -nostartfiles -nostdlib -Wl,--defsym=STACK_SIZE=92160")
-
-link_libraries(gcc)
-
-set(hwlib ../../libraries/hwlib)
-include_directories(${hwlib}/library)
-add_definitions(-DBMPTK_TARGET_arduino_due
-                -DBMPTK_TARGET=arduino_due
-                -DBMPTK_BAUDRATE=19200)
-
-set(sources
-    src/wrap-hwlib.cpp
-    src/libc-stub.cpp
-    src/main.cpp
-)
-
-# The target chip that is compiled for:
-include(${toolchain}/targets/arm32/cm3/atmel/sam3x/sam3x8e/sam3x8e.cmake)
-
-# The flashscript used to flash the binary (optional):
-include(${toolchain}/targets/arm32/cm3/atmel/sam3x/sam3x8e/flashscripts/arduino_due.cmake)
+if (NOT ${test_build})
+include(BuildModule.cmake)
+else (NOT ${test_build})
+include(TestModule.cmake)
+endif(NOT ${test_build})
