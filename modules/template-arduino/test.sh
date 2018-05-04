@@ -1,3 +1,4 @@
-#!/bin/bash
-
-cd build/ && ctest -V
+mkdir build_test
+cd build_test
+cmake .. -Dtest_build=TRUE
+ctest -V
