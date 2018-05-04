@@ -4,43 +4,6 @@
 
 ## Usage:
 
-#### Merging the suite with an existing repository:
-
-```bash
-git remote add r2d2-ci-suite git@github.com:JulianvDoorn/r2d2-continuous-integration-template.git
-git pull r2d2-ci-suite master
-```
-> Once the commits have been pulled, there may be conflicts. It is advised to prioritize the Testing Suite over the recieving repository in order to secure integrity and functionality.
-
-Windows:
-```batch
-configure.bat
-```
-
-Linux:
-```bash
-chmod +x configure.sh
-./configure.sh
-```
-
-#### Fresh setup:
-Windows:
-```batch
-git clone git@github.com:JulianvDoorn/r2d2-continuous-integration-template.git
-cd r2d2-continuous-integration-template
-configure.bat
-```
-
-Linux:
-```bash
-git clone git@github.com:JulianvDoorn/r2d2-continuous-integration-template.git
-cd r2d2-continuous-integration-template
-chmod +x configure.sh
-./configure.sh
-```
-
-Running these commands will add a `build/` folder and generates build ready files.
-
 #### Building:
 > Assumed that the commands are launched from the root directiory of the repository
 TODO
