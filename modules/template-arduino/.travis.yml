@@ -23,4 +23,6 @@ before_script:
   - valgrind --version
   - lizard --version
 
-script: ./test.sh
+script: 
+  - source .fetch-build-environment.sh ~/build-environment
+  - source test.sh
