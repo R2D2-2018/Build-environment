@@ -1,10 +1,4 @@
-# R2D2 Development Template Repository
-
-## Usage:
-
-#### Building:
-> Assumed that the commands are launched from the root directiory of the repository
-TODO
+# R2D2 Build Environment Repository
 
 # Dependencies
 
