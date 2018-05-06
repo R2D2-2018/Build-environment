@@ -1,6 +1,6 @@
 # This file clones the specified
 
-github_URL="https://github.com/JulianvDoorn/r2d2-continuous-integration-template"
+github_URL="https://github.com/R2D2-2018/Build-environment"
 
 if [ -z ${R2D2_BUILD_ENVIRONMENT} ]; then
 git clone ${github_URL} $1
