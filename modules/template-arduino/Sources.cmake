@@ -1,18 +1,24 @@
 # Toolchain:
 
+if ($ENV{R2D2_BUILD_ENVIRONMENT})
+set (build_environment $ENV{R2D2_BUILD_ENVIRONMENT)
 set (toolchain $ENV{R2D2_BUILD_ENVIRONMENT}/toolchain) # Your path to kvasir_toolchain
+else ($ENV{R2D2_BUILD_ENVIRONMENT})
+set (build_environment ../..)
+set (toolchain ../../toolchain)
+endif ($ENV{R2D2_BUILD_ENVIRONMENT})
 
 # Libraries:
 
 link_libraries (gcc)
 
-set (hwlib $ENV{R2D2_BUILD_ENVIRONMENT}/libraries/hwlib)
+set (hwlib ${build_environment}/libraries/hwlib)
 include_directories (${hwlib}/library)
 add_definitions (-DBMPTK_TARGET_arduino_due
                  -DBMPTK_TARGET=arduino_due
                  -DBMPTK_BAUDRATE=19200)
 
-set (catch $ENV{R2D2_BUILD_ENVIRONMENT}/libraries/Catch2)
+set (catch ${build_environment}/libraries/Catch2)
 include_directories (${catch}/single_include)
 
 # Source Files:
