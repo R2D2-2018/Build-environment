@@ -1,12 +1,13 @@
 # Toolchain:
 
-if ($ENV{R2D2_BUILD_ENVIRONMENT})
-set (build_environment $ENV{R2D2_BUILD_ENVIRONMENT)
-set (toolchain $ENV{R2D2_BUILD_ENVIRONMENT}/toolchain) # Your path to kvasir_toolchain
-else ($ENV{R2D2_BUILD_ENVIRONMENT})
+set (build_environment "$ENV{R2D2_BUILD_ENVIRONMENT}") # Your path to kvasir_toolchain
+
+if (build_environment)
+set (toolchain ${build_environment}/toolchain)
+else (build_environment)
 set (build_environment ../..)
 set (toolchain ../../toolchain)
-endif ($ENV{R2D2_BUILD_ENVIRONMENT})
+endif (build_environment)
 
 # Libraries:
 
