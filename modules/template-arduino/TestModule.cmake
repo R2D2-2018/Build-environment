@@ -1,9 +1,20 @@
 include (CTest)
 
+include (../../flags.cmake)
+
+set (sources ${sources}
+    ${unit_test_main}
+	test/wrap-hwlib.cpp
+)
+
 set (build_test build_test)
 set (unit_test unit_test)
 set (memcheck memcheck)
 set (complexity_test complexity_test)
+
+add_definitions (-DBMPTK_TARGET_test
+                 -DBMPTK_TARGET=test
+                 -DBMPTK_BAUDRATE=19200)
 
 if (NOT DEFINED cyclomatic_complexity_warning)
 SET(cyclomatic_complexity_warning 10)
@@ -20,7 +31,7 @@ add_test (
 endif (build_test_enabled)
 
 if (unit_test_enabled)
-add_executable (${unit_test} ${unit_test_main})
+add_executable (${unit_test} ${unit_test_main} ${sources})
 
 add_test (
 	NAME ${unit_test}
