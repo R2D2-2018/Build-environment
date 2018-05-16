@@ -1,6 +1,8 @@
 include (CTest)
 
-include (../../flags.cmake)
+include (${build_environment}/flags.cmake)
+
+include_directories (src/)
 
 set (sources ${sources}
     ${unit_test_main}

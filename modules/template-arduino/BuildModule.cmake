@@ -1,4 +1,4 @@
-include (../../flags.cmake)
+include (${build_environment}/flags.cmake)
 
 set (sources ${sources}
     src/main.cpp
