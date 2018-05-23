@@ -16,7 +16,7 @@
 #define HWLIB_QUOTE( FILE ) #FILE
 #define HWLIB_INCLUDE( FILE ) HWLIB_QUOTE( FILE )
 
-#ifdef HWLIB_TEST
+#ifdef BMPTK_TARGET_test
    #include HWLIB_INCLUDE( hwlib-test.hpp )
 #endif
 
