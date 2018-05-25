@@ -5,6 +5,10 @@
 
 #include "some-controller.hpp"
 
+TEST_CASE("Virtual hwlib uart") {
+    hwlib::cout << "Hello world!" << hwlib::endl;
+}
+
 TEST_CASE("Virtual controller test demo") {
     hwlib::test::pin_in<14 * 8> test_pin_in{// some input data
                                             0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1,
