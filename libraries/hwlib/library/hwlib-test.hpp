@@ -237,7 +237,7 @@ public:
 };
 
 /// pin_adc implementation for unit testing
-template <int L = 256>
+template <int L = 256, int B = 12>
 class pin_adc : public hwlib::adc {
 private:
    uint32_t read_i;
@@ -253,7 +253,7 @@ public:
    /// The provided arguments are all the digital values which this pin will
    /// return in series for every get() call.
    template <class... Args>
-   pin_adc(Args... lst) : read_i(0), data { lst... }
+   pin_adc(Args... lst) : hwlib::adc(B), read_i(0), data { lst... }
    {}
 
    adc_value_type get() override {
