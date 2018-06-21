@@ -1,0 +1,3 @@
+[submodule "libraries/hwlib"]
+	path = libraries/hwlib
+	url = https://github.com/R2D2-2018/hwlib.git

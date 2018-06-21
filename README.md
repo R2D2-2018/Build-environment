@@ -1,9 +1,16 @@
 # R2D2 Build Environment Repository
 
+# Cloning
+
+`git clone https://github.com/R2D2-2018/Build-environment --recursive`
+
+> `--recursive` is required to install the required submodules
+
 # Dependencies
 
 Essential:
-- G++ 5.4.0
+- arm-none-eabi-gcc 5.4.0
+- gcc 5.4.0
 - CMake version 3.5.1
 
 Non-essential:
